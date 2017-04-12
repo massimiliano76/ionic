@@ -7411,7 +7411,11 @@ ionic.scroll = {
                 ionic.tap.cloneFocusedInput(container, self);
               }
               // Scroll the input into view, with a 100px buffer
-              self.scrollTo(0, pos - (rect.top + 100), true);
+              var margin = 100;
+              if(rect.height < 200){
+                margin = rect.height/2;
+              }
+              self.scrollTo(0, pos - (rect.top + margin), true);
               self.onScroll();
             }, 32);
 
